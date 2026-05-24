@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Werent Exclusive Portal | Australian Leasing Marketplace</title>
+  <meta name="description" content="A premium responsive HTML, CSS and JavaScript prototype for an Australian rental and leasing marketplace with agent dashboard and admin controls." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css" />
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "name": "Werent Exclusive Leasing Marketplace",
+    "url": "https://example.com",
+    "potentialAction": {
+      "@type": "SearchAction",
+      "target": "https://example.com/search?location={search_term_string}",
+      "query-input": "required name=search_term_string"
+    }
+  }
+  </script>
+</head>
+<body>
+  <div class="noise"></div>
+
+  <header class="site-header" id="top">
+    <nav class="nav-shell" aria-label="Main navigation">
+      <a class="brand" href="#top" aria-label="Werent home">
+        <span class="brand-mark">W</span>
+        <span class="brand-text">werent<span>.</span></span>
+      </a>
+
+      <button class="mobile-toggle" type="button" aria-label="Open menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+
+      <div class="nav-links" data-nav>
+        <a href="#discover">Discover</a>
+        <a href="#categories">Sectors</a>
+        <a href="#listings">Listings</a>
+        <a href="#agent">Agent Portal</a>
+        <a href="#admin">Admin</a>
+        <a href="#guide">Guide</a>
+      </div>
+
+      <div class="nav-actions">
+        <button class="ghost-pill" type="button" data-open-saved>
+          <span class="heart">♡</span> Saved <span class="saved-count" data-saved-count>0</span>
+        </button>
+        <button class="ghost-pill" type="button">Log in</button>
+        <a class="primary-pill" href="#agent">Create listing</a>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero-section" id="discover">
+      <div class="hero-bg">
+        <div class="orb orb-one"></div>
+        <div class="orb orb-two"></div>
+        <div class="orb orb-three"></div>
+      </div>
+
+      <div class="hero-grid layout">
+        <div class="hero-copy reveal">
+          <div class="eyebrow"><span></span> Exclusive Australian Leasing Marketplace</div>
+          <h1>Find the right space before anyone else does.</h1>
+          <p>
+            A premium portal for residential rentals, commercial suites, industrial warehouses, retail spaces and rural leases across Australia.
+          </p>
+          <div class="hero-metrics" aria-label="Platform metrics">
+            <div><strong>27k+</strong><span>active listings</span></div>
+            <div><strong>5</strong><span>property sectors</span></div>
+            <div><strong>24/7</strong><span>tenant discovery</span></div>
+          </div>
+        </div>
+
+        <div class="hero-panel reveal delay-1" aria-label="Premium property preview">
+          <div class="hero-card-top">
+            <span class="live-dot"></span>
+            <span>Featured Lease</span>
+            <button class="mini-icon" aria-label="Save preview">♡</button>
+          </div>
+          <div class="property-visual penthouse-visual">
+            <img src="assets/residence_living.jpg" alt="Bright residential lounge in a premium Australian rental property" decoding="async" />
+            <div class="visual-badge">New</div>
+            <div class="visual-glass-card">
+              <strong>$650 per week</strong>
+              <span>3 Bed • 2 Bath • 2 Car</span>
+            </div>
+          </div>
+          <div class="hero-property-content">
+            <h3>Harbourlight Residence with City View</h3>
+            <p>Toorak VIC 3142 • Residential</p>
+            <div class="chip-row">
+              <span>Virtual tour</span>
+              <span>Floor plan</span>
+              <span>Verified agent</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="search-console layout reveal delay-2" role="search">
+        <div class="console-tabs" aria-label="Search type tabs">
+          <button class="active" data-intent="Lease">For Lease</button>
+          <button data-intent="Rent">For Rent</button>
+          <button data-intent="Agents">Find Agents</button>
+        </div>
+        <div class="console-grid">
+          <label>
+            <span>Property sector</span>
+            <select id="heroCategory">
+              <option value="All">Any sector</option>
+              <option value="Residential">Residential</option>
+              <option value="Commercial">Commercial</option>
+              <option value="Industrial">Industrial</option>
+              <option value="Retail">Retail</option>
+              <option value="Rural">Rural</option>
+            </select>
+          </label>
+          <label class="wide-field">
+            <span>Location</span>
+            <input id="heroLocation" type="text" placeholder="Suburb, city or postcode" />
+          </label>
+          <label>
+            <span>Min price</span>
+            <select id="heroMin">
+              <option value="0">Any</option>
+              <option value="400">$400</option>
+              <option value="1000">$1,000</option>
+              <option value="5000">$5,000</option>
+              <option value="25000">$25,000</option>
+            </select>
+          </label>
+          <label>
+            <span>Max price</span>
+            <select id="heroMax">
+              <option value="999999">Any</option>
+              <option value="1000">$1,000</option>
+              <option value="10000">$10,000</option>
+              <option value="50000">$50,000</option>
+              <option value="150000">$150,000</option>
+            </select>
+          </label>
+          <button class="search-button" id="heroSearch" type="button">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M10.8 18.1a7.3 7.3 0 1 1 5.1-2.1l4 4a1.3 1.3 0 0 1-1.8 1.8l-4-4a7.2 7.2 0 0 1-3.3.3Zm0-2.6a4.7 4.7 0 1 0 0-9.4 4.7 4.7 0 0 0 0 9.4Z"/></svg>
+            Search
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <section class="layout category-section" id="categories">
+      <div class="section-heading reveal">
+        <span class="section-kicker">Browse by sector</span>
+        <h2>One portal. Five leasing worlds.</h2>
+        <p>Select a sector to reveal refined filters, matching listings and sector-specific property requirements.</p>
+      </div>
+
+      <div class="category-grid" data-category-grid></div>
+    </section>
+
+    <section class="layout marketplace-section" id="listings">
+      <div class="market-header reveal">
+        <div>
+          <span class="section-kicker">Marketplace search</span>
+          <h2>Exclusive listings tailored to your selected sector.</h2>
+        </div>
+        <div class="view-switch" aria-label="View switcher">
+          <button class="active" type="button" data-view="grid">Grid</button>
+          <button type="button" data-view="list">List</button>
+        </div>
+      </div>
+
+      <div class="market-layout reveal delay-1">
+        <aside class="filter-panel">
+          <div class="filter-head">
+            <h3>Refine search</h3>
+            <button type="button" id="clearFilters">Clear all</button>
+          </div>
+
+          <label class="filter-control">
+            <span>Selected sector</span>
+            <select id="filterCategory"></select>
+          </label>
+
+          <label class="filter-control">
+            <span>Location</span>
+            <input id="filterLocation" type="text" placeholder="City, suburb or postcode" />
+          </label>
+
+          <div class="range-block">
+            <div class="range-label">
+              <span>Max price</span>
+              <strong id="priceValue">Any</strong>
+            </div>
+            <input id="priceRange" type="range" min="500" max="150000" step="500" value="150000" />
+            <div class="range-scale"><span>$500</span><span>$150k+</span></div>
+          </div>
+
+          <div class="dynamic-filter" id="dynamicFilters"></div>
+
+          <div class="map-card">
+            <div class="map-topline">
+              <strong>Map area search</strong>
+              <span>Mock</span>
+            </div>
+            <div class="map-canvas" aria-hidden="true">
+              <span class="pin p1"></span><span class="pin p2"></span><span class="pin p3"></span>
+              <div class="map-ring"></div>
+            </div>
+            <p>Draw or select a suburb boundary in the full backend version.</p>
+          </div>
+        </aside>
+
+        <section class="results-panel">
+          <div class="results-toolbar">
+            <div>
+              <strong id="resultCount">0 listings found</strong>
+              <span id="resultMeta">Updated just now</span>
+            </div>
+            <label>
+              Sort by
+              <select id="sortSelect">
+                <option value="newest">Newest</option>
+                <option value="low">Price low to high</option>
+                <option value="high">Price high to low</option>
+                <option value="views">Most viewed</option>
+              </select>
+            </label>
+          </div>
+
+          <div class="listings-grid" id="listingGrid"></div>
+        </section>
+      </div>
+    </section>
+
+    <section class="layout premium-details-section" id="property-details">
+      <div class="section-heading reveal">
+        <span class="section-kicker">Listing detail experience</span>
+        <h2>Built for deeper tenant decisions.</h2>
+        <p>Every listing can support large galleries, virtual tour links, printable floor plans, agent details, enquiry forms and structured property information.</p>
+      </div>
+      <div class="detail-showcase reveal delay-1">
+        <div class="showcase-gallery">
+          <div class="gallery-main property-visual warehouse-visual">
+            <img src="assets/warehouse_front.jpg" alt="Modern industrial warehouse exterior for lease" loading="lazy" decoding="async" />
+            <span>Interactive media gallery</span>
+          </div>
+          <div class="gallery-thumbs">
+            <div class="property-visual office-visual"><img src="assets/office_exterior.jpg" alt="Commercial office building exterior" loading="lazy" decoding="async" /></div>
+            <div class="property-visual retail-visual"><img src="assets/retail_front.jpg" alt="Premium retail shopfront for lease" loading="lazy" decoding="async" /></div>
+            <div class="property-visual rural-visual"><img src="assets/rural_homestead.jpg" alt="Rural grazing property with open land" loading="lazy" decoding="async" /></div>
+          </div>
+        </div>
+        <div class="showcase-content">
+          <div class="status-line"><span></span> Verified listing workflow</div>
+          <h3>Property pages that convert searches into enquiries.</h3>
+          <p>High-resolution photos, tour previews and floor plan actions help tenants decide faster while agents receive clean enquiry data.</p>
+          <div class="feature-list">
+            <span>Photo gallery</span>
+            <span>Virtual tour</span>
+            <span>Printable floor plan</span>
+            <span>Schema markup</span>
+            <span>Similar listings</span>
+            <span>Agent contact card</span>
+          </div>
+          <button class="primary-wide" type="button" id="openFirstListing">Preview listing detail</button>
+        </div>
+      </div>
+    </section>
+
+    <section class="layout portal-section" id="agent">
+      <div class="portal-grid">
+        <div class="portal-copy reveal">
+          <span class="section-kicker">Agent dashboard</span>
+          <h2>Launch, manage and improve listings from one calm workspace.</h2>
+          <p>Agents can create listings, edit availability, track views, manage enquiries and upload media without needing a complex CMS experience.</p>
+          <div class="portal-actions">
+            <button class="primary-pill" type="button" data-open-agent-modal>Add demo listing</button>
+            <a class="ghost-link" href="#admin">View admin controls</a>
+          </div>
+        </div>
+        <div class="dashboard-card reveal delay-1">
+          <div class="dash-top">
+            <strong>Agent Workspace</strong>
+            <span>Live preview</span>
+          </div>
+          <div class="dash-stats">
+            <div><strong>18</strong><span>Active listings</span></div>
+            <div><strong>1,248</strong><span>Monthly views</span></div>
+            <div><strong>46</strong><span>Enquiries</span></div>
+          </div>
+          <div class="dash-list" id="agentActivity"></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="layout admin-section" id="admin">
+      <div class="admin-shell reveal">
+        <div class="admin-sidebar">
+          <span class="section-kicker">Admin command centre</span>
+          <h2>Approve, feature, remove and monitor listings.</h2>
+          <p>Admin tools protect listing quality, platform trust and marketplace performance.</p>
+        </div>
+        <div class="admin-table-wrap">
+          <div class="table-head">
+            <strong>Listing moderation queue</strong>
+            <span>Demo controls</span>
+          </div>
+          <div class="admin-table" id="adminTable"></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="layout guide-section" id="guide">
+      <div class="section-heading reveal">
+        <span class="section-kicker">Build roadmap</span>
+        <h2>Static prototype now. Real marketplace next.</h2>
+        <p>This HTML, CSS and JavaScript version is ideal for design review and client approval before adding backend, database, authentication and uploads.</p>
+      </div>
+      <div class="roadmap-grid reveal delay-1">
+        <article>
+          <span>01</span><h3>Frontend prototype</h3><p>Homepage, search UI, category filters, listing cards, dashboards and responsive design.</p>
+        </article>
+        <article>
+          <span>02</span><h3>Backend connection</h3><p>Connect Node, Strapi, Supabase or Firebase for real data, media upload and secure auth.</p>
+        </article>
+        <article>
+          <span>03</span><h3>Marketplace scale</h3><p>Add subscriptions, maps, saved alerts, analytics, AI matching and advanced admin workflows.</p>
+        </article>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="layout footer-grid">
+      <div>
+        <a class="brand footer-brand" href="#top"><span class="brand-mark">W</span><span class="brand-text">werent<span>.</span></span></a>
+        <p>Premium static prototype for an Australian rental and leasing marketplace.</p>
+      </div>
+      <div><strong>Sectors</strong><a href="#categories">Residential</a><a href="#categories">Commercial</a><a href="#categories">Industrial</a><a href="#categories">Retail</a><a href="#categories">Rural</a></div>
+      <div><strong>Platform</strong><a href="#agent">Agent portal</a><a href="#admin">Admin controls</a><a href="#listings">Search filters</a><a href="#property-details">Listing detail</a></div>
+      <div><strong>Prototype</strong><p>HTML • CSS • JavaScript • Responsive • Retina-ready UI</p></div>
+    </div>
+  </footer>
+
+  <dialog class="listing-modal" id="listingModal">
+    <div class="modal-shell">
+      <button class="modal-close" type="button" aria-label="Close modal">×</button>
+      <div id="modalContent"></div>
+    </div>
+  </dialog>
+
+  <dialog class="listing-modal" id="savedModal">
+    <div class="modal-shell compact-modal">
+      <button class="modal-close" type="button" aria-label="Close saved listings">×</button>
+      <h2>Saved listings</h2>
+      <div id="savedContent"></div>
+    </div>
+  </dialog>
+
+  <dialog class="listing-modal" id="agentModal">
+    <div class="modal-shell compact-modal">
+      <button class="modal-close" type="button" aria-label="Close add listing form">×</button>
+      <h2>Add demo listing</h2>
+      <form class="agent-form" id="agentForm">
+        <label>Title <input name="title" required placeholder="Example: Designer office suite near CBD" /></label>
+        <label>Sector
+          <select name="category">
+            <option>Residential</option><option>Commercial</option><option>Industrial</option><option>Retail</option><option>Rural</option>
+          </select>
+        </label>
+        <label>Location <input name="location" required placeholder="Melbourne VIC 3000" /></label>
+        <label>Price <input name="price" type="number" min="1" required placeholder="650" /></label>
+        <label>Description <textarea name="description" placeholder="Short listing description"></textarea></label>
+        <button class="primary-wide" type="submit">Create demo listing</button>
+      </form>
+    </div>
+  </dialog>
+
+  <script src="script.js"></script>
+</body>
+</html>
